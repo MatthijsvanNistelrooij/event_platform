@@ -18,9 +18,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 
   const userId = sessionClaims?.userId as string
 
-  const organizerId = event.organizer?._id;
-  const organizerIdString = organizerId ? organizerId.toString() : null;
-  const isEventCreator = userId === organizerIdString;
+  const isEventCreator = userId === event.organizer?._id.toString()
 
   return (
     <div className="group relative flex min-h-[380px] w-full max-w-[400px] flex-col overflow-hidden rounded-xl bg-white shadow-md transition-all hover:shadow-lg md:min-h-[438px]">
@@ -31,7 +29,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
       />
       {/* IS EVENT CREATOR ... */}
 
-      {isEventCreator && !hidePrice && (
+      {/* {isEventCreator && !hidePrice && (
         <div className="absolute right-2 top-2 flex flex-col gap-4 rounded-xl bg-white p-3 shadow-sm transition-all">
           <Link href={`/events/${event._id}/update`}>
             <Image
@@ -44,7 +42,7 @@ const Card = ({ event, hasOrderLink, hidePrice }: CardProps) => {
 
           <DeleteConfirmation eventId={event._id} />
         </div>
-      )}
+      )} */}
 
       <div className="flex min-h-[230px] flex-col gap-3 p-5 md:gap-4">
         {!hidePrice && (
