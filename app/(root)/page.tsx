@@ -12,12 +12,12 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const searchText = (searchParams?.query as string) || ""
   const category = (searchParams?.category as string) || ""
 
-  // const events = await getAllEvents({
-  //   query: searchText,
-  //   category,
-  //   page,
-  //   limit: 6
-  // })
+  const events = await getAllEvents({
+    query: searchText,
+    category,
+    page,
+    limit: 6
+  })
 
   return (
     <>
@@ -67,7 +67,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           <CategoryFilter />
         </div>
 
-        {/* <Collection 
+        <Collection 
           data={events?.data}
           emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
@@ -75,7 +75,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           limit={6}
           page={page}
           totalPages={events?.totalPages}
-        /> */}
+        />
       </section>
     </>
   )
