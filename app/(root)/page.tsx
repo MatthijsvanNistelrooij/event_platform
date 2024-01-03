@@ -16,7 +16,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
     query: searchText,
     category,
     page,
-    limit: 6
+    limit: 6,
   })
 
   return (
@@ -25,23 +25,15 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">
-              Ik zit in de Olie.
-              <br />
-              Wat dan? Ben je een sardientje?
+              Bedenk, organiseer en host een evenement
             </h1>
             <p className="p-regular-20 md:p-regular-24">
-              Hoor je dit ook vaak als je in de kroeg zit en zegt dat je in de
-              olie zit? En zit je in de olie maar ben je geen sardientje? Meld
-              je dan nu aan.
+              Leer, bekijk en ervaar 100+ evenementen van bedrijven uit jouw
+              regio.
             </p>
-            <div>
-              <Button size="lg" asChild className="button w-full sm:w-fit m-4 ml-0">
-                <Link href="#events">Bekijk Sardientjes</Link>
-              </Button>
-              <Button size="lg" asChild className="button w-full sm:w-fit">
-                <Link href="/sign-in">Ik ben een Sardientje</Link>
-              </Button>
-            </div>
+            <Button size="lg" asChild className="button w-full sm:w-fit">
+              <Link href="#events">Bekijk Evenementen</Link>
+            </Button>
           </div>
 
           <Image
@@ -59,7 +51,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
       >
         <h2 className="h2-bold">
-          Deze sardientjes <br /> gingen u voor
+          Evenementen <br />
         </h2>
 
         <div className="flex w-full flex-col gap-5 md:flex-row">
@@ -67,7 +59,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           <CategoryFilter />
         </div>
 
-        <Collection 
+        <Collection
           data={events?.data}
           emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
